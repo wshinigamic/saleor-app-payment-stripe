@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/router";
 import { FormInput } from "@/modules/ui/atoms/macaw-ui/FormInput";
+import { logger } from "@/lib/logger";
 
 const schema = z
   .object({
@@ -92,6 +93,9 @@ const CopyManifest = () => {
 };
 
 const IndexPage: NextPage = () => {
+  console.log("in IndexPage");
+  logger.warn("try");
+
   const { appBridgeState } = useAppBridge();
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
